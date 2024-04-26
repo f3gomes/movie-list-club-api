@@ -23,7 +23,7 @@ const movieSchema = new mongoose.Schema({
     required: true,
     default: false,
   },
-  genresIds: {
+  genreIds: {
     type: [Number],
     required: true,
   },
