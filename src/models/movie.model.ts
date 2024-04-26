@@ -23,6 +23,10 @@ const movieSchema = new mongoose.Schema({
     required: true,
     default: false,
   },
+  genresIds: {
+    type: [Number],
+    required: true,
+  },
 });
 
 export const Movie = mongoose.model("Movie", movieSchema);
