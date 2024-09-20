@@ -4,6 +4,7 @@ import {
   findMovies,
   removeMovie,
   updateIncLikes,
+  updateMovieGroup,
   updateMovieStatus,
 } from "../services/movie.service";
 
@@ -13,6 +14,10 @@ export const postMovie = async (req: Request, res: Response) => {
 
 export const getMovies = async (req: Request, res: Response) => {
   await findMovies(req, res);
+};
+
+export const patchMovieGroup = async (req: Request, res: Response) => {
+  await updateMovieGroup(req, res);
 };
 
 export const patchMovieStatus = async (req: Request, res: Response) => {

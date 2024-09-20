@@ -1,6 +1,10 @@
 import mongoose from "mongoose";
 
 const movieSchema = new mongoose.Schema({
+  group: {
+    type: String,
+    required: true,
+  },
   name: {
     type: String,
     required: true,
