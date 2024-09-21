@@ -16,16 +16,20 @@ export const createMovie = async (req: Request, res: Response) => {
 };
 
 export const findMovies = async (req: Request, res: Response) => {
-  const { group } = req.body;
+  const { group } = req.params;
 
-  try {
-    const movies = await Movie.find({}).where({ group }).sort({
-      watched: 1,
-      likes: -1,
-    });
-    res.status(200).json(movies);
-  } catch (error: any) {
-    res.status(500).json({ error: error.message });
+  if (!group) {
+    res.status(404).json({ error: "Group not found." });
+  } else {
+    try {
+      const movies = await Movie.find({}).where({ group }).sort({
+        watched: 1,
+        likes: -1,
+      });
+      res.status(200).json(movies);
+    } catch (error: any) {
+      res.status(500).json({ error: error.message });
+    }
   }
 };
 
